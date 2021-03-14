@@ -173,7 +173,7 @@ build: [
        "-no-feature-validator"
        "-feature-settings"
        #"-silent"
-       "-v"
+       #"-v"
   ]
   [ make "-j%{jobs}%"  ]
 ]

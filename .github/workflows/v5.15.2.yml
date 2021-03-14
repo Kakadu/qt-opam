@@ -55,6 +55,11 @@ jobs:
       #          libtiffxx5 libwacom-dev libxcb-glx0-dev libxcb-icccm4-dev libxcb-render-util0-dev \
       #          libxcb-sync-dev libxcb-xinerama0-dev libxcb-xinput-dev libxcb-xkb-dev libxcomposite-dev libxdamage-dev \
       #          libxft-dev libxkbcommon-x11-dev odbcinst odbcinst1debian2 pango1.0-tools  unixodbc-dev wayland-protocol
+
+      # https://wiki.qt.io/Building_Qt_5_from_Git#Linux.2FX11
+      - run: sudo apt-get install build-essential perl python git
+      - run: sudo apt-get install '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
+
       - run: sudo apt install libopengl-dev libxcb-sync-dev libxcb-xinerama0-dev libxcb-xinput-dev libxcb-xkb-dev libxcomposite-dev libxdamage-dev libxft-dev libxkbcommon-x11-dev
 
       - run: opam pin add . --yes --no-action
