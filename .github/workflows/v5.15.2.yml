@@ -56,7 +56,9 @@ jobs:
       #          libxcb-sync-dev libxcb-xinerama0-dev libxcb-xinput-dev libxcb-xkb-dev libxcomposite-dev libxdamage-dev \
       #          libxft-dev libxkbcommon-x11-dev odbcinst odbcinst1debian2 pango1.0-tools  unixodbc-dev wayland-protocol
       - run: sudo apt install libopengl-dev libxcb-sync-dev libxcb-xinerama0-dev libxcb-xinput-dev libxcb-xkb-dev libxcomposite-dev libxdamage-dev libxft-dev libxkbcommon-x11-dev
-      - run: opam pin add . --no-action
+
+      - run: opam pin add . --yes --no-action
+      - run: opam install opam-depext --yes
       - run: opam depext  Qt5 --yes --with-test
       #- run: opam install Qt5 --deps-only
       - run: opam install Qt5 --yes --verbose
