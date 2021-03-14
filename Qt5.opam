@@ -18,7 +18,7 @@ build: [
   ["tar" "-xf" "qtsrc.tar.xz" "-C" "." "--strip-components=1" ]
   #["find" "."]
   #["./init-repository" "--module-subset=qtbase,qtdeclarative,qtquickcontrols,qtgraphicaleffects" "-f" ]
-  ["./configure" "--help" ]
+  #["./configure" "--help" ]
   ["./configure"
        #"-top-level"
        "-ltcg"
@@ -154,13 +154,14 @@ build: [
        "-no-feature-validator"
        "-feature-settings"
        #"-silent"
+       "-v"
   ]
   [ make "-j%{jobs}%"  ]
 ]
 install: [ make "install"]
 
 depexts: [
-#  ["qt5-default" "qt5-qmake" "qtdeclarative5-dev"] {os-family = "debian"}
+  ["libopengl-dev"] {os-family = "debian"}
 ]
 
 

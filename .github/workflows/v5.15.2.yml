@@ -42,6 +42,9 @@ jobs:
         with:
           ocaml-version: ${{ matrix.ocaml-version }}
 
+      #- run: sudo apt install opam ocaml-nox
+      #- run: opam init --yes
+
       #- run: sudo apt install default-libmysqlclient-dev dh-exec firebird-dev firebird3.0-common firebird3.0-common-doc \
       #          freetds-dev gir1.2-harfbuzz-0.0 libasound2-dev libatk-bridge2.0-dev libatk1.0-dev \
       #          libatspi2.0-dev libcairo-script-interpreter2 libcairo2-dev libct4 libcups2-dev libcupsimage2-dev \
