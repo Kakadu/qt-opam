@@ -1,4 +1,4 @@
-name: Build
+name: Build Qt lite
 
 on:
   pull_request:
@@ -17,10 +17,8 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          #- macos-latest
           - ubuntu-20.04
         ocaml-version:
-          #- 4.11.0
           - 4.08.1
 
     runs-on: ${{ matrix.os }}
@@ -39,7 +37,7 @@ jobs:
         with:
           ocaml-version: ${{ matrix.ocaml-version }}
 
-      - run: opam pin add Qt5 . --no-action
-      - run: opam depext Qt5 --yes --with-test
-      - run: opam install . --deps-only
-      - run: opam install . --yes
+      - run: opam pin add Qt5 --no-action
+      - run: opam depext  Qt5 --yes --with-test
+      - run: opam install Qt5--deps-only
+      - run: opam install Qt5 --yes --verbose

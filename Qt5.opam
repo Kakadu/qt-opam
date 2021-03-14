@@ -6,7 +6,7 @@ description: """\
 Qt """
 maintainer: "kakadu@pm.me"
 authors: "TODO"
-license: "LGPLv3"
+license: "LGPL-3.0-or-later"
 homepage: "https://github.com/Kakadu/qt-opam"
 doc: "https://github.com/Kakadu/qt-opam"
 bug-reports: "https://github.com/Kakadu/qt-opam/issues"
