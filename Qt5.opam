@@ -32,7 +32,6 @@ build: [
        "-nomake"       "examples"
        "-nomake"       "tests"
 
-       "-skip"         "qtconnectivity"
        "-skip" "qtconnectivity"
        "-skip" "qttools"
        "-skip" "qtmultimedia"
@@ -169,15 +168,16 @@ build: [
        "-no-feature-rubberband"
        "-no-feature-validator"
        "-feature-settings"
-       "-silent"               {conf-qt5-option-silent:installed}
-       #"-v"
+       "-silent"               #{conf-qt5-option-silent:installed}
+       "-v"                    {conf-qt5-option-verbose:installed}
   ]
   [ make "-j%{jobs}%"  ]
 ]
 install: [ make "install"]
 
 depexts: [
-  ["libopengl-dev" "libxcb-xinerama0-dev"] {os-family = "debian"}
+  [ "libxcb-sync-dev" "libxcb-xinput-dev" "libxcb-xkb-dev" "libxcomposite-dev" "libxdamage-dev" "libxft-dev"
+    "libxkbcommon-x11-dev" "libopengl-dev" "libxcb-xinerama0-dev" ] {os-family = "debian"}
 ]
 
 

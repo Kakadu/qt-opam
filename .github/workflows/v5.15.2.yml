@@ -49,10 +49,10 @@ jobs:
       - run: sudo apt-get install build-essential perl python git
       - run: sudo apt-get install '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
 
-      - run: sudo apt install libopengl-dev libxcb-sync-dev libxcb-xinerama0-dev libxcb-xinput-dev libxcb-xkb-dev libxcomposite-dev libxdamage-dev libxft-dev libxkbcommon-x11-dev
+      #- run: sudo apt install libopengl-dev libxcb-sync-dev libxcb-xinerama0-dev libxcb-xinput-dev libxcb-xkb-dev libxcomposite-dev libxdamage-dev libxft-dev libxkbcommon-x11-dev
 
       - run: opam pin add . --yes --no-action
       - run: opam install opam-depext --yes
       - run: opam depext  Qt5 --yes --with-test
       #- run: opam install Qt5 --deps-only
-      - run: opam install conf-qt5-option-silent Qt5 --yes --verbose
+      - run: opam install  Qt5 --yes --verbose -j `nproc --all`
