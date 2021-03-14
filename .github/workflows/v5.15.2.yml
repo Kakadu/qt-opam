@@ -37,13 +37,13 @@ jobs:
         run: echo "::set-output name=date::$(/bin/date -u "+%Y%m%d")"
         shell: bash
 
-      - name: Use OCaml ${{ matrix.ocaml-version }}
-        uses: avsm/setup-ocaml@v1
-        with:
-          ocaml-version: ${{ matrix.ocaml-version }}
+      #- name: Use OCaml ${{ matrix.ocaml-version }}
+      #  uses: avsm/setup-ocaml@v1
+      #  with:
+      #    ocaml-version: ${{ matrix.ocaml-version }}
 
-      #- run: sudo apt install opam ocaml-nox
-      #- run: opam init --yes
+      - run: sudo apt install opam ocaml-nox
+      - run: opam init --yes
 
       #- run: sudo apt install default-libmysqlclient-dev dh-exec firebird-dev firebird3.0-common firebird3.0-common-doc \
       #          freetds-dev gir1.2-harfbuzz-0.0 libasound2-dev libatk-bridge2.0-dev libatk1.0-dev \
