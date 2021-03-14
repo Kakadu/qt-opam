@@ -16,7 +16,7 @@ depends: [
 ]
 build: [
   ["tar" "-xf" "qtsrc.tar.xz" "-C" "." "--strip-components=1" ]
-  ["find" "."]
+  #["find" "."]
   #["./init-repository" "--module-subset=qtbase,qtdeclarative,qtquickcontrols,qtgraphicaleffects" "-f" ]
   ["./configure"
        "-top-level"
@@ -35,6 +35,7 @@ build: [
        "-nomake"       "tests"
        "-skip"         "qtconnectivity"
        "-no-dbus"
+       "-no-feature-vulkan"
        "-no-feature-itemmodeltester"
        "-no-feature-sqlmodel"
        "-no-feature-tuiotouch"
