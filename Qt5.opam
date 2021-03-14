@@ -180,7 +180,7 @@ build: [
 install: [ make "install"]
 
 depexts: [
-  ["libopengl-dev"] {os-family = "debian"}
+  ["libopengl-dev" "libxcb-xinerama0-dev"] {os-family = "debian"}
 ]
 
 
