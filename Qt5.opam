@@ -61,7 +61,7 @@ build: [
        "-no-feature-dirmodel"
        "-no-feature-iconv"
        "-no-feature-big_codecs"
-       "-no-feature-textcodec"
+       #"-no-feature-textcodec"
        "-no-feature-codecs"
        "-no-feature-translation"
        "-no-feature-sharedmemory"
@@ -159,8 +159,12 @@ build: [
 ]
 install: [ make "install"]
 
+depexts: [
+#  ["qt5-default" "qt5-qmake" "qtdeclarative5-dev"] {os-family = "debian"}
+]
 
-dev-repo: "git+https://github.com/ocaml-ppx/ppxlib.git"
+
+dev-repo: "git+https://github.com/Kakadu/qt-opam.git"
 extra-source "qtsrc.tar.xz" {
   src:
     "https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
