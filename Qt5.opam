@@ -153,7 +153,7 @@ build: [
        "-no-feature-rubberband"
        "-no-feature-validator"
        "-feature-settings"
-       "-silent"
+       #"-silent"
   ]
   [ make "-j%{jobs}%"  ]
 ]
