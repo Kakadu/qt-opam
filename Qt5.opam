@@ -52,7 +52,7 @@ build: [
        "-skip" "qtserialport"
        "-skip" "qtserialbus"
        "-skip" "qtspeech"
-       "-skip" "qttranslation"
+       "-skip" "qttranslations"
        "-skip" "qttools"
        "-skip" "qtvirtualkeyboard"
        "-skip" "qtwayland"
