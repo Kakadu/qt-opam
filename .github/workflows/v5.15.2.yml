@@ -1,0 +1,45 @@
+name: Build
+
+on:
+  pull_request:
+    branches:
+      - 'master'
+  push:
+    branches:
+      - 'master'
+  #schedule:
+  #  - cron: "0 13 * * 1"
+    # https://jasonet.co/posts/scheduled-actions/
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          #- macos-latest
+          - ubuntu-20.04
+        ocaml-version:
+          #- 4.11.0
+          - 4.08.1
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Retrieve date for cache key
+        id: cache-key
+        run: echo "::set-output name=date::$(/bin/date -u "+%Y%m%d")"
+        shell: bash
+
+      - name: Use OCaml ${{ matrix.ocaml-version }}
+        uses: avsm/setup-ocaml@v1
+        with:
+          ocaml-version: ${{ matrix.ocaml-version }}
+
+      - run: opam pin add Qt5 . --no-action
+      - run: opam depext Qt5 --yes --with-test
+      - run: opam install . --deps-only
+      - run: opam install . --yes
