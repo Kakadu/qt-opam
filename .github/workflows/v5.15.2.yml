@@ -42,7 +42,16 @@ jobs:
         with:
           ocaml-version: ${{ matrix.ocaml-version }}
 
-      - run: sudo apt build-dep qt5-default
+      - run: sudo apt install default-libmysqlclient-dev dh-exec firebird-dev firebird3.0-common firebird3.0-common-doc \
+                freetds-dev gir1.2-harfbuzz-0.0 libasound2-dev libatk-bridge2.0-dev libatk1.0-dev \
+                libatspi2.0-dev libcairo-script-interpreter2 libcairo2-dev libct4 libcups2-dev libcupsimage2-dev \
+                libdatrie-dev libdbus-1-dev libdouble-conversion-dev libevdev-dev libfbclient2 \
+                libfribidi-dev libgbm-dev libgdk-pixbuf2.0-dev libgraphite2-dev libgtk-3-dev libgudev-1.0-dev  \
+                libharfbuzz-dev libharfbuzz-gobject0 libib-util libinput-dev libjbig-dev libmtdev-dev \
+                libmysqlclient-dev libpango1.0-dev libpixman-1-dev libpq-dev libproxy-dev libthai-dev libtiff-dev \
+                libtiffxx5 libwacom-dev libxcb-glx0-dev libxcb-icccm4-dev libxcb-render-util0-dev \
+                libxcb-sync-dev libxcb-xinerama0-dev libxcb-xinput-dev libxcb-xkb-dev libxcomposite-dev libxdamage-dev \
+                libxft-dev libxkbcommon-x11-dev odbcinst odbcinst1debian2 pango1.0-tools  unixodbc-dev wayland-protocol
       - run: opam pin add . --no-action
       - run: opam depext  Qt5 --yes --with-test
       #- run: opam install Qt5 --deps-only
