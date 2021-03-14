@@ -56,7 +56,7 @@ build: [
        "-no-feature-filedialog"
        "-no-feature-filesystemmodel"
        "-no-feature-filesystemwatcher"
-       "-no-feature-temporaryfile"
+       #"-no-feature-temporaryfile"
        "-no-feature-filesystemiterator"
        "-no-feature-dirmodel"
        "-no-feature-iconv"
