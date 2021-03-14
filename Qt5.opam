@@ -18,8 +18,9 @@ build: [
   ["tar" "-xf" "qtsrc.tar.xz" "-C" "." "--strip-components=1" ]
   #["find" "."]
   #["./init-repository" "--module-subset=qtbase,qtdeclarative,qtquickcontrols,qtgraphicaleffects" "-f" ]
+  ["./configure" "--help" ]
   ["./configure"
-       "-top-level"
+       #"-top-level"
        "-ltcg"
        "-no-pch"
        "-no-feature-cxx14_make_unique"
