@@ -18,7 +18,7 @@ build: [
   ["find" "."]
 ]
 dev-repo: "git+https://github.com/ocaml-ppx/ppxlib.git"
-url {
+extra-source "qtsrc.tar.xz" {
   src:
     "https://download.qt.io/archive/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz"
   checksum: [
