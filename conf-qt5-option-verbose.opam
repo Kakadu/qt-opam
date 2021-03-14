@@ -1,0 +1,16 @@
+opam-version: "2.0"
+
+version: "1"
+synopsis: "Set Qt5 to be configured with more verbose compilation output"
+maintainer: "kakadu@pm.me"
+authors: "TODO"
+homepage: "https://github.com/Kakadu/qt-opam"
+bug-reports: "https://github.com/Kakadu/qt-opam/issues"
+
+depends: [
+  "Qt5" { post }
+]
+#flags: compiler
+
+
+conflicts: [ "conf-qt5-option-silent" ]
