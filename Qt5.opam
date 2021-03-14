@@ -8,19 +8,16 @@ maintainer: "kakadu@pm.me"
 authors: "TODO"
 license: "LGPL-3.0-or-later"
 homepage: "https://github.com/Kakadu/qt-opam"
-doc: "https://github.com/Kakadu/qt-opam"
 bug-reports: "https://github.com/Kakadu/qt-opam/issues"
+doc: "https://github.com/Kakadu/qt-opam"
 
 depends: [
   "ocaml" {>= "4.04.1" & < "4.13"}
 ]
 build: [
   ["tar" "-xf" "qtsrc.tar.xz" "-C" "." "--strip-components=1" ]
-  #["find" "."]
-  #["./init-repository" "--module-subset=qtbase,qtdeclarative,qtquickcontrols,qtgraphicaleffects" "-f" ]
   #["./configure" "--help" ]
   ["./configure"
-       #"-top-level"
        "-ltcg"
        "-no-pch"
        "-no-feature-cxx14_make_unique"
@@ -172,7 +169,7 @@ build: [
        "-no-feature-rubberband"
        "-no-feature-validator"
        "-feature-settings"
-       #"-silent"
+       "-silent"               {conf-qt5-option-silent:installed}
        #"-v"
   ]
   [ make "-j%{jobs}%"  ]
