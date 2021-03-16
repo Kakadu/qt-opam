@@ -193,8 +193,12 @@ build: [
 install: [ make "install"]
 
 depexts: [
-  [ "libxcb-sync-dev" "libxcb-xinput-dev" "libxcb-xkb-dev" "libxcomposite-dev" "libxdamage-dev" "libxft-dev"
-    "libxkbcommon-x11-dev" "libopengl-dev" "libxcb-xinerama0-dev" ] {os-family = "debian"}
+  [ "build-essential" "perl" "python"
+    "libxcb-sync-dev" "libxcb-xinput-dev" "libxcb-xkb-dev" "libxcomposite-dev" "libxdamage-dev" "libxft-dev"
+    "libxkbcommon-x11-dev" "libopengl-dev" "libxcb-xinerama0-dev"
+    "'^libxcb.*-dev'" "libx11-xcb-dev" "libglu1-mesa-dev" "libxrender-dev" "libxi-dev"
+    "libxkbcommon-dev" "libxkbcommon-x11-dev"
+  ] {os-family = "debian"}
 ]
 
 

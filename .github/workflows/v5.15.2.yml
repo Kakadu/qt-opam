@@ -49,15 +49,15 @@ jobs:
 
       # https://wiki.qt.io/Building_Qt_5_from_Git#Linux.2FX11
       - run: sudo apt-get install build-essential perl python git
-      - run: sudo apt-get install '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
-
-      #- run: sudo apt install libopengl-dev libxcb-sync-dev libxcb-xinerama0-dev libxcb-xinput-dev libxcb-xkb-dev libxcomposite-dev libxdamage-dev libxft-dev libxkbcommon-x11-dev
+      #- run: sudo apt-get install '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
 
       - run: opam pin add . --yes --no-action
       - run: opam install opam-depext --yes
       - run: opam depext  Qt5 --yes --with-test
-      #- run: opam install Qt5 --deps-only
+      - run: opam install Qt5 --deps-only
       - run: opam install  Qt5 --yes --verbose -j `nproc --all`
+
+      - run: opam show --list-files Qt5 | cut -f 1 -d' ' | xargs ls -d -s -1 2>/dev/null
 
       - name: computing size of installed files
         run: opam show --list-files Qt5 | cut -f 1 -d' ' | xargs ls -d -s -1 2>/dev/null | awk '{$1=$1};1' | cut -f 1 -d' ' | awk '{s+=$1} END {print s,"KB"}'
