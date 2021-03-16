@@ -193,6 +193,7 @@ build: [
 install: [ make "install"]
 
 depexts: [
+  # https://wiki.qt.io/Building_Qt_5_from_Git#Linux.2FX11
   [ "build-essential" "perl" "python"
     "libxcb-sync-dev" "libxcb-xinput-dev" "libxcb-xkb-dev" "libxcomposite-dev" "libxdamage-dev" "libxft-dev"
     "libxkbcommon-x11-dev" "libopengl-dev" "libxcb-xinerama0-dev"
