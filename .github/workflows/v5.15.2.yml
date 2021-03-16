@@ -58,3 +58,6 @@ jobs:
       - run: opam depext  Qt5 --yes --with-test
       #- run: opam install Qt5 --deps-only
       - run: opam install  Qt5 --yes --verbose -j `nproc --all`
+
+      - name: computing size of installed files
+        run: opam show --list-files Qt5 | cut -f 1 -d' ' | xargs ls -d -s -1 2>/dev/null | awk '{$1=$1};1' | cut -f 1 -d' ' | awk '{s+=$1} END {print s,"KB"}'

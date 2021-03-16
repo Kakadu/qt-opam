@@ -1,0 +1,15 @@
+opam-version: "2.0"
+
+version: "1"
+synopsis: "Set Qt5 to be configured as developer build (not a release build)"
+maintainer: "kakadu@pm.me"
+authors: "TODO"
+homepage: "https://github.com/Kakadu/qt-opam"
+bug-reports: "https://github.com/Kakadu/qt-opam/issues"
+
+depends: [
+  "Qt5" { post }
+]
+
+
+conflicts: [ "conf-qt5-option-release" ]

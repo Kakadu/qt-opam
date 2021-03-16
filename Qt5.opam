@@ -23,13 +23,18 @@ build: [
        "-no-feature-cxx14_make_unique"
        "-opensource"
        "-confirm-license"
-       "-debug"
-       "-prefix"       "%{prefix}%"
+      "-prefix"       "%{prefix}%"
+      "-debug"                 {  conf-qt5-option-devbuild:installed}
+      "-release"               {! conf-qt5-option-devbuild:installed}
+      "-optimize-size"         {! conf-qt5-option-devbuild:installed}
 
+      "-no-harfbuzz"
        "-no-glib"
        "-no-widgets"
        "-no-linuxfb"
+       "-no-egl"
        "-no-eglfs"
+       "-no-evdev"
        "-no-kms"
        "-make"         "libs"
        "-nomake"       "examples"
@@ -92,7 +97,7 @@ build: [
        "-no-feature-sharedmemory"
        "-no-feature-systemsemaphore"
        "-no-feature-concurrent"
-       "-no-feature-textmarkdownreader"
+       "-no-feature-textmarkdownreader"             # this options seems not to take effect
        "-no-feature-textmarkdownwriter"
        "-no-feature-sessionmanager"
        "-no-feature-textodfwriter"
@@ -181,6 +186,7 @@ build: [
        "-feature-settings"
        "-silent"               #{conf-qt5-option-silent:installed}
        "-v"                    {conf-qt5-option-verbose:installed}
+       "-strip"                {! conf-qt5-option-devbuild:installed}
   ]
   [ make "-j%{jobs}%"  ]
 ]
