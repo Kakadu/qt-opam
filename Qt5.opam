@@ -20,9 +20,9 @@ build: [
   ["tar" "-xf" "qtsrc.tar.xz" "-C" "." "--strip-components=1" ]
   #["./configure" "--help" ]
   ["./configure"
-      "-ltcg"
+      # "-ltcg"              # makes linking veeery slow
       "-no-pch"              # disabling precompiled headers allow to remove more code in #ifdefs
-      "-no-feature-cxx14_make_unique"
+      #"-no-feature-cxx14_make_unique"
       "-opensource"
       "-confirm-license"
 
@@ -50,9 +50,7 @@ build: [
       "-no-qml-debug"
       "-no-dbus"
       "-no-tiff" "-no-gif" "-no-ico"
-      "-system-zlib"
-      "-system-libpng"
-      "-system-libjpeg"
+      #"-system-zlib"      "-system-libpng"      "-system-libjpeg"
 
       "-make"         "libs"
       "-nomake"       "examples"
