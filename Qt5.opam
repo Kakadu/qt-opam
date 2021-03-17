@@ -40,7 +40,8 @@ build: [
       "-no-eglfs"
       "-no-evdev"
       "-no-kms"
-      "-no-freetype"      "-no-harfbuzz"
+      #"-no-freetype"
+      "-no-harfbuzz"
       "-no-xcb-xlib"               # yes, it still gives us libqxcb.so
 
       "-no-icu"
