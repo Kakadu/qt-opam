@@ -146,7 +146,7 @@ build: [
        "-no-feature-cups"
        "-no-feature-colornames"
        "-no-feature-picture"
-      "-no-feature-qml-locale"
+      #"-no-feature-qml-locale"            # qml-locate is requried by qtquickcontrols2/src/quicktemplates2/qquickstackelement.cpp
        "-no-feature-datawidgetmapper"
        "-no-feature-abstractbutton"
        "-no-feature-contextmenu"
@@ -210,7 +210,10 @@ build: [
   ]
   [ make "-j%{jobs}%"  ]
 ]
-install: [ make "install"]
+install: [
+  [ "strip" "qtbase/bin/qmake" ]                 # even with -strip configure options qmake is not stripped
+  [ make "install"]
+]
 
 depexts: [
   # https://wiki.qt.io/Building_Qt_5_from_Git#Linux.2FX11
