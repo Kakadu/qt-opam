@@ -11,34 +11,52 @@ homepage: "https://github.com/Kakadu/qt-opam"
 bug-reports: "https://github.com/Kakadu/qt-opam/issues"
 doc: "https://github.com/Kakadu/qt-opam"
 
+# https://lists.qt-project.org/pipermail/interest/2014-May/012236.html
+
 depends: [
-  "ocaml" {>= "4.04.1" & < "4.13"}
+  #"ocaml" {>= "4.04.1" & < "4.13"}
 ]
 build: [
   ["tar" "-xf" "qtsrc.tar.xz" "-C" "." "--strip-components=1" ]
   #["./configure" "--help" ]
   ["./configure"
-       "-ltcg"
-       "-no-pch"
-       "-no-feature-cxx14_make_unique"
-       "-opensource"
-       "-confirm-license"
+      "-ltcg"
+      "-no-pch"              # disabling precompiled headers allow to remove more code in #ifdefs
+      "-no-feature-cxx14_make_unique"
+      "-opensource"
+      "-confirm-license"
+
       "-prefix"       "%{prefix}%"
       "-debug"                 {  conf-qt5-option-devbuild:installed}
       "-release"               {! conf-qt5-option-devbuild:installed}
       "-optimize-size"         {! conf-qt5-option-devbuild:installed}
+      "-strip"                {! conf-qt5-option-devbuild:installed}
 
-      "-no-harfbuzz"
-       "-no-glib"
-       "-no-widgets"
-       "-no-linuxfb"
-       "-no-egl"
-       "-no-eglfs"
-       "-no-evdev"
-       "-no-kms"
-       "-make"         "libs"
-       "-nomake"       "examples"
-       "-nomake"       "tests"
+      "-no-harfbuzz"              # add package about system harfbuzz
+      "-no-glib"
+      "-no-widgets"
+      "-no-linuxfb" "-no-directfb"
+      "-no-egl"
+      "-no-eglfs"
+      "-no-evdev"
+      "-no-kms"
+      "-no-freetype"      "-no-harfbuzz"
+      "-no-xcb-xlib"               # yes, it still gives us libqxcb.so
+
+      "-no-icu"
+      "-no-iconv"
+      "-no-mimetype-database"
+      "-no-qml-debug"
+      "-no-dbus"
+      "-no-tiff" "-no-gif" "-no-ico"
+      "-system-zlib"
+      "-system-libpng"
+      "-system-libjpeg"
+
+      "-make"         "libs"
+      "-nomake"       "examples"
+      "-nomake"       "tests"
+      "-nomake"       "tools"             # no QtCreator, QtDesigner
 
        "-skip" "qt3d"
        "-skip" "qtconnectivity"
@@ -127,6 +145,7 @@ build: [
        "-no-feature-cups"
        "-no-feature-colornames"
        "-no-feature-picture"
+      "-no-feature-qml-locale"
        "-no-feature-datawidgetmapper"
        "-no-feature-abstractbutton"
        "-no-feature-contextmenu"
@@ -183,10 +202,10 @@ build: [
        "-no-feature-statustip"
        "-no-feature-rubberband"
        "-no-feature-validator"
+
        "-feature-settings"
        "-silent"               #{conf-qt5-option-silent:installed}
        "-v"                    {conf-qt5-option-verbose:installed}
-       "-strip"                {! conf-qt5-option-devbuild:installed}
   ]
   [ make "-j%{jobs}%"  ]
 ]
