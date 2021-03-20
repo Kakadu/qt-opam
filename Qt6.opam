@@ -127,7 +127,6 @@ build: [
 
        "-no-feature-dnslookup"
        "-no-feature-dtls"
-       "-no-feature-ftp"
        "-no-feature-gssapi"
        "-no-feature-ocsp"
        "-no-feature-localserver"
