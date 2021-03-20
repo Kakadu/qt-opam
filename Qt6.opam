@@ -42,11 +42,11 @@ build: [
       "-no-xcb-xlib"               # yes, it still gives us libqxcb.so
 
       "-no-icu"
-      "-no-iconv"
+      #"-no-iconv"
       "-no-mimetype-database"
       "-no-qml-debug"
       "-no-dbus"
-      "-no-tiff" "-no-gif" "-no-ico"
+      "-no-gif" "-no-ico"
       #"-system-zlib"      "-system-libpng"      "-system-libjpeg"
 
       "-make"         "libs"
@@ -104,16 +104,16 @@ build: [
        #"-no-feature-temporaryfile"
        "-no-feature-filesystemiterator"
        "-no-feature-dirmodel"
-       "-no-feature-iconv"
-       "-no-feature-big_codecs"
+       #"-no-feature-iconv"
+       #"-no-feature-big_codecs"
        #"-no-feature-textcodec"
        "-no-feature-codecs"
-       "-no-feature-translation"
+       #"-no-feature-translation"                  # required for QtObject:setUiLanguage (Maybe bug?)
        "-no-feature-sharedmemory"
-       "-no-feature-systemsemaphore"
+       #"-no-feature-systemsemaphore"              # required by qtbase/src/tools/androidtestrunner
        "-no-feature-concurrent"
-       "-no-feature-textmarkdownreader"             # this options seems not to take effect
-       "-no-feature-textmarkdownwriter"
+       #"-no-feature-textmarkdownreader"
+       #"-no-feature-textmarkdownwriter"
        "-no-feature-sessionmanager"
        "-no-feature-textodfwriter"
        "-no-feature-cssparser"
@@ -121,7 +121,7 @@ build: [
        #"-no-feature-highdpiscaling"
        #"-feature-highdpiscaling"
        "-no-feature-im"
-       "-no-feature-shortcut"
+       #"-no-feature-shortcut"
        "-no-feature-cursor"
        "-no-feature-action"
        "-no-feature-tabletevent"
@@ -198,7 +198,7 @@ build: [
        "-no-feature-tabwidget"
        "-no-feature-statustip"
        "-no-feature-rubberband"
-       "-no-feature-validator"
+       "-feature-validator"          # for qquicktextinput.cpp
 
        "-feature-settings"
        "-silent"               #{conf-qt5-option-silent:installed}
@@ -218,6 +218,7 @@ depexts: [
     "libxkbcommon-x11-dev" "libopengl-dev" "libxcb-xinerama0-dev"
     "'^libxcb.*-dev'" "libx11-xcb-dev" "libglu1-mesa-dev" "libxrender-dev" "libxi-dev"
     "libxkbcommon-dev" "libxkbcommon-x11-dev"
+    "libclang-11-dev"
   ] {os-family = "debian"}
 ]
 
