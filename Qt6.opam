@@ -106,7 +106,7 @@ build: [
        #"-no-feature-iconv"
        #"-no-feature-big_codecs"
        #"-no-feature-textcodec"
-       "-no-feature-codecs"
+
        #"-no-feature-translation"                  # required for QtObject:setUiLanguage (Maybe bug?)
        "-no-feature-sharedmemory"
        #"-no-feature-systemsemaphore"              # required by qtbase/src/tools/androidtestrunner
