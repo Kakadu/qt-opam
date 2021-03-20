@@ -1,4 +1,4 @@
-name: Build Qt lite
+name: Build Qt 5 lite
 
 on:
   pull_request:
@@ -9,6 +9,7 @@ on:
       - 'master'
     paths-ignore:
       - 'README.md'
+      - 'Qt6.opam'
   #schedule:
   #  - cron: "0 13 * * 1"
     # https://jasonet.co/posts/scheduled-actions/

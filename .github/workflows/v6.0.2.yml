@@ -9,6 +9,7 @@ on:
       - 'master'
     paths-ignore:
       - 'README.md'
+      - 'Qt5.opam'
   #schedule:
   #  - cron: "0 13 * * 1"
     # https://jasonet.co/posts/scheduled-actions/
