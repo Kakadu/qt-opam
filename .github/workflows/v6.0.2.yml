@@ -1,0 +1,54 @@
+name: Build Qt 6 lite
+
+on:
+  pull_request:
+    branches:
+      - 'master'
+  push:
+    branches:
+      - 'master'
+    paths-ignore:
+      - 'README.md'
+  #schedule:
+  #  - cron: "0 13 * * 1"
+    # https://jasonet.co/posts/scheduled-actions/
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-20.04
+        ocaml-version:
+          - 4.08.1
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.7.0
+        with:
+          access_token: ${{ github.token }}
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Retrieve date for cache key
+        id: cache-key
+        run: echo "::set-output name=date::$(/bin/date -u "+%Y%m%d")"
+        shell: bash
+
+      - run: sudo apt install opam ocaml-nox
+      - run: opam init --yes
+
+      - run: opam pin add . --yes --no-action
+      - run: opam install opam-depext --yes
+      - run: opam depext  Qt6 --yes --with-test
+      - run: opam install Qt6 --deps-only
+      - run: opam install Qt6 --yes --verbose -j `nproc --all`
+
+      - run: opam show --list-files Qt6 | cut -f 1 -d' ' | xargs ls -d -s -1 2>/dev/null | sort -n
+
+      - name: Computing size of installed files
+        run: opam show --list-files Qt6 | cut -f 1 -d' ' | xargs ls -d -s -1 2>/dev/null | awk '{$1=$1};1' | cut -f 1 -d' ' | awk '{s+=$1} END {print s,"KB"}'
