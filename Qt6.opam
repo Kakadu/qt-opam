@@ -29,7 +29,6 @@ build: [
       "-optimize-size"         {! conf-qt6-option-devbuild:installed}
       "-strip"                {! conf-qt6-option-devbuild:installed}
 
-      "-no-harfbuzz"              # add package about system harfbuzz
       "-no-glib"
       "-no-widgets"
       "-no-linuxfb" "-no-directfb"
@@ -102,8 +101,8 @@ build: [
        "-no-feature-filesystemmodel"
        "-no-feature-filesystemwatcher"
        #"-no-feature-temporaryfile"
-       "-no-feature-filesystemiterator"
-       "-no-feature-dirmodel"
+       #"-no-feature-filesystemiterator"
+       #"-no-feature-dirmodel"
        #"-no-feature-iconv"
        #"-no-feature-big_codecs"
        #"-no-feature-textcodec"
