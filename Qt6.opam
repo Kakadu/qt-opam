@@ -1,6 +1,6 @@
 opam-version: "2.0"
 
-version: "6.0.2"
+version: "6.2.0"
 synopsis: "Qt"
 description: """\
 Qt """
@@ -224,9 +224,9 @@ depexts: [
 dev-repo: "git+https://github.com/Kakadu/qt-opam.git"
 extra-source "qtsrc.tar.xz" {
   src:
-    "https://download.qt.io/archive/qt/6.0/6.0.2/single/qt-everywhere-src-6.0.2.tar.xz"
+    "https://download.qt.io/archive/qt/6.0/6.2.0/single/qt-everywhere-src-6.2.0.tar.xz"
   checksum: [
-    "sha256=67a076640647783b95a907d2231e4f34cec69be5ed338c1c1b33124cadf10bdf"
-    "sha512=6494b6d91e6024ece799b78b14c42c03deb4eca61a1fadf0ce94fcf147d251e23d0621cfc8a48680b2a882ea0294be58b4dff61ed62680162ee0abfc1f8d5667"
+    "sha256=60c2dc0ee86dd338e5c5194bd95922abfc097841e3e855693dfb4f5aaf0db4db"
+    "sha512=d4cd2457e08491d06892de0fd156eb77ff77a96d263faac3720e9db3ed720bbf15c0f0f0357131ce108e374037407bced4d6a68e8135d46ca746deac81c0c996"
   ]
 }
