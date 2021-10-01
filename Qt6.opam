@@ -130,7 +130,7 @@ build: [
        "-no-feature-gssapi"
        "-no-feature-ocsp"
        "-no-feature-localserver"
-       "-no-feature-netlistmgr"
+       #"-no-feature-netlistmgr"           # absent in Qt 6.2
        "-no-feature-networkinterface"
        "-no-feature-socks5"
        "-no-feature-sspi"
