@@ -224,7 +224,7 @@ depexts: [
 dev-repo: "git+https://github.com/Kakadu/qt-opam.git"
 extra-source "qtsrc.tar.xz" {
   src:
-    "https://download.qt.io/archive/qt/6.0/6.2.0/single/qt-everywhere-src-6.2.0.tar.xz"
+    "https://download.qt.io/archive/qt/6.2/6.2.0/single/qt-everywhere-src-6.2.0.tar.xz"
   checksum: [
     "sha256=60c2dc0ee86dd338e5c5194bd95922abfc097841e3e855693dfb4f5aaf0db4db"
     "sha512=d4cd2457e08491d06892de0fd156eb77ff77a96d263faac3720e9db3ed720bbf15c0f0f0357131ce108e374037407bced4d6a68e8135d46ca746deac81c0c996"
